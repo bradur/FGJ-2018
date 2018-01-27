@@ -482,7 +482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 114895339977362432, guid: 21943a9d0168c6c4994d5e0fdeea2ef8,
     type: 2}
-  poolSize: 100
+  poolSize: 2
   spawnMore: 0
   poolContainer: {fileID: 576225318}
 --- !u!1 &616344130
@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 616344131}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: EnergyNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -744,6 +744,15 @@ Prefab:
       propertyPath: isRoot
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1357891757342044, guid: 9f43909b4ed42154fb550b551fae6b32, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114223345389237424, guid: 9f43909b4ed42154fb550b551fae6b32,
+        type: 2}
+      propertyPath: health
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f43909b4ed42154fb550b551fae6b32, type: 2}
   m_IsPrefabParent: 0
@@ -779,7 +788,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 8690b96294dab7f4b82efd439925a266, type: 2}
+  - {fileID: 2100000, guid: f864e9d126e05bc4e892f4d1e0605e5b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -908,7 +917,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2138269571}
   m_LocalRotation: {x: 0.34254724, y: -0.09154394, z: 0.0068141683, w: 0.9350052}
-  m_LocalPosition: {x: 3.21, y: 13.73, z: -15.39}
+  m_LocalPosition: {x: 3.21, y: 10.4, z: -12.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

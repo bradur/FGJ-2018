@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4790727671383154}
   - component: {fileID: 120305028644336634}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Via
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,9 +36,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4074527386130206}
   - component: {fileID: 114223345389237424}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: EnergyNode
-  m_TagString: Untagged
+  m_TagString: EnergyNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,9 +54,10 @@ GameObject:
   - component: {fileID: 33865358019849462}
   - component: {fileID: 23078400030522988}
   - component: {fileID: 95212241132758212}
-  m_Layer: 0
+  - component: {fileID: 136072101921452380}
+  m_Layer: 9
   m_Name: BasicNode
-  m_TagString: Untagged
+  m_TagString: EnergyNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +75,7 @@ GameObject:
   - component: {fileID: 23049454090552468}
   - component: {fileID: 114627955270093870}
   - component: {fileID: 120762694217381026}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Path
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,9 +93,10 @@ GameObject:
   - component: {fileID: 33031309976323028}
   - component: {fileID: 135260570910565376}
   - component: {fileID: 23144290042744734}
+  - component: {fileID: 114718112699642774}
   m_Layer: 9
   m_Name: NodeItself
-  m_TagString: Untagged
+  m_TagString: EnergyNode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,7 +110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4769473790835892}
   - component: {fileID: 212341139635800538}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BuildIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4074264917067284}
   - component: {fileID: 212517233525876612}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TriggerIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,6 +387,9 @@ MonoBehaviour:
   triggerDistanceIndicator: {fileID: 4074264917067284}
   buildDistanceIndicator: {fileID: 4769473790835892}
   nodeTransform: {fileID: 4898544717228110}
+  nodeCollider: {fileID: 135260570910565376}
+  isRoot: 0
+  health: 20
 --- !u!114 &114627955270093870
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -400,6 +405,18 @@ MonoBehaviour:
   children: []
   parent: {fileID: 0}
   ownVia: {fileID: 1135951581998278}
+--- !u!114 &114718112699642774
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1595172943447718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88dd730562fb77e4c952772ec65c7fa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentNode: {fileID: 0}
 --- !u!120 &120305028644336634
 LineRenderer:
   m_ObjectHideFlags: 1
@@ -589,6 +606,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &136072101921452380
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1365133392903568}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.19999999
+  m_Height: 0.7069971
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.24650142, z: 0.000000007450581}
 --- !u!136 &136743006582082088
 CapsuleCollider:
   m_ObjectHideFlags: 1

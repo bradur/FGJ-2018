@@ -37,8 +37,10 @@ public class NodeBuildingMode : MonoBehaviour
             {
                 NodeManager.main.DeselectAll();
                 BuildableNode newNode = NodeManager.main.SpawnNode(transform.position);
-                currentNode.SetPathParent(newNode.gameObject);
-                currentNode.SetUnbuildable();
+                //currentNode.SetPathParent(newNode.gameObject);
+                newNode.SetPathParent(currentNode.gameObject);
+                currentNode.SetPathChild(newNode.gameObject);
+                //currentNode.SetUnbuildable();
                 currentNode.Deselect();
                 Disable();
             }

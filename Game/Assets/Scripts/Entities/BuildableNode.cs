@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -40,12 +41,18 @@ public class BuildableNode : MonoBehaviour
     private Transform nodeTransform;
 
     [SerializeField]
+    private SphereCollider nodeCollider;
+
+    [SerializeField]
     private bool isRoot;
+
+    [SerializeField]
+    private float health;
 
     public bool IsRoot { get { return isRoot; } }
     
     private bool buildable = true;
-    public bool Buildable { get { return buildable; } }
+    public bool Buildable { get { return pathIndicator.GetChildren().Count == 0; } }
     private bool isSelected = false;
 
     private SpriteRenderer triggerDistanceRenderer;
@@ -73,7 +80,7 @@ public class BuildableNode : MonoBehaviour
         if (distance <= triggerDistance)
         {
             isCloseEnough = true;
-            if (buildable)
+            if (Buildable)
             {
                 if (!nodeBuildingMode.BuildingModeOn)
                 {
@@ -110,24 +117,57 @@ public class BuildableNode : MonoBehaviour
             }
         }
         // if player has entered the range and presses E
-        if (buildable && isCloseEnough && Input.GetKeyUp(KeyCode.E) && !nodeBuildingMode.BuildingModeOn)
+        if (Buildable && isCloseEnough && Input.GetKeyUp(KeyCode.E) && !nodeBuildingMode.BuildingModeOn)
         {
             nodeBuildingMode.EnableBuildMode();
             buildDistanceIndicator.gameObject.SetActive(true);
             SetPathParent(player.gameObject);
         }
+
+        if(health <= 0)
+        {
+            gameObject.SetActive(false);
+            pathIndicator.DeleteChild();
+            pathIndicator.DeleteParent();
+            //if player is building from this node, remove the reference and cancel the building
+            Destroy(gameObject);
+        }
+
+        if(!Buildable)
+        {
+            triggerDistanceRenderer.color = selectedNotBuildableColor;
+        }
+    }
+
+    public void ReduceHealth(float damage)
+    {
+        health -= damage;
     }
 
     public void SetUnbuildable()
     {
         triggerDistanceRenderer.color = selectedNotBuildableColor;
-        buildable = false;
         Deselect();
     }
 
     public void SetPathParent(GameObject parent)
     {
         pathIndicator.SetParent(parent);
+    }
+
+    public void SetPathChild(GameObject gameObject)
+    {
+        pathIndicator.SetChild(gameObject);
+    }
+
+    public void DeletePathParent(bool deleteChild = true)
+    {
+        pathIndicator.DeleteParent(deleteChild);
+    }
+
+    public void DeletePathChild(bool deleteParent = true)
+    {
+        pathIndicator.DeleteChild(deleteParent);
     }
 
     /// <summary>
@@ -146,6 +186,8 @@ public class BuildableNode : MonoBehaviour
     public void Deselect()
     {
         isSelected = false;
+        if (buildDistanceIndicator == null || triggerDistanceIndicator == null) return; 
+
         buildDistanceIndicator.gameObject.SetActive(false);
         triggerDistanceIndicator.gameObject.SetActive(false);
     }

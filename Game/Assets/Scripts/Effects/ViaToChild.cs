@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,11 +19,6 @@ public class ViaToChild : MonoBehaviour
 
     [SerializeField]
     GameObject ownVia;
-
-    public void SetParent(GameObject newParent)
-    {
-        parent = newParent;
-    }
 
     // Use this for initialization
     void Start()
@@ -109,10 +105,58 @@ public class ViaToChild : MonoBehaviour
                     }
                 }
             }
-            
+
             viaRenderer.SetPosition(0, firstPoint);
             viaRenderer.SetPosition(1, midPoint + firstPoint);
             viaRenderer.SetPosition(2, new Vector3(c.x, b.y, c.z));
         }
+    }
+
+    public void DeleteChild(bool deleteParent = true)
+    {
+        if (children.Count <= 0) return;
+
+        BuildableNode obj = children[0].GetComponent<BuildableNode>();
+
+        if(obj == null) return;
+
+        if (deleteParent)
+        {
+            obj.DeletePathParent(false);
+        }
+        children.Clear();
+    }
+
+    internal void SetChild(GameObject gameObject)
+    {
+        if (children == null)
+        {
+            children = new List<GameObject>();
+        }
+
+        children.Insert(0, gameObject);
+    }
+
+    public void DeleteParent(bool deleteChild = true)
+    {
+        if (parent == null) return;
+        BuildableNode obj = parent.GetComponent<BuildableNode>();
+        if (obj == null) return;
+
+        if (deleteChild)
+        {
+            obj.DeletePathChild(false);
+        }
+        parent = null;
+    }
+
+    public void SetParent(GameObject newParent)
+    {
+        parent = newParent;
+    }
+
+    public List<GameObject> GetChildren()
+    {
+        return children;
     }
 }

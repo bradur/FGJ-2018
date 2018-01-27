@@ -30,7 +30,6 @@ public class RandomSpawner : MonoBehaviour
 
             random = new Vector3(Random.value * 5, 1.05f, Random.value * 5);
             dropManager.SpawnDrop(random);
-            Debug.Log("test");
         }
     }
 }

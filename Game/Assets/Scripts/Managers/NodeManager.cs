@@ -51,8 +51,9 @@ public class NodeManager : MonoBehaviour
         {
             return false;
         }
-        foreach(BuildableNode node in nodes)
+        foreach (BuildableNode node in nodes)
         {
+            if (node == null) continue;
             Vector2 nodePosition2D = new Vector2(node.transform.position.x, node.transform.position.z);
             float distance = Vector2.Distance(position2D, nodePosition2D);
             if (distance <= startBuildingDistance)
@@ -83,14 +84,14 @@ public class NodeManager : MonoBehaviour
 
     public List<BuildableNode> GetNodes(bool getRoot = false)
     {
-        if(getRoot)
+        if (getRoot)
         {
             return nodes;
         }
 
         return nodes.Where(x => !x.IsRoot).ToList();
     }
-    
+
     public void DeselectAll()
     {
         foreach (BuildableNode node in nodes)
