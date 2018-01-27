@@ -43,6 +43,26 @@ public class NodeManager : MonoBehaviour
 
     }
 
+    public BuildableNode AttemptConnection(Vector3 position, Vector3 targetNodePosition)
+    {
+        Vector2 targetNodePosition2D = new Vector2(targetNodePosition.x, targetNodePosition.z);
+        Vector2 position2D = new Vector2(position.x, position.z);
+        if (Vector2.Distance(position2D, targetNodePosition2D) > buildingDistance)
+        {
+            return null;
+        }
+        foreach (BuildableNode node in nodes)
+        {
+            Vector2 nodePosition2D = new Vector2(node.transform.position.x, node.transform.position.z);
+            float distance = Vector2.Distance(position2D, nodePosition2D);
+            if (distance <= (startBuildingDistance + node.AdditionalTriggerDistance) && node.ConnectableNode)
+            {
+                return node;
+            }
+        }
+        return null;
+    }
+
     public bool IsBuildingAllowed(Vector3 position, Vector3 targetNodePosition)
     {
         Vector2 targetNodePosition2D = new Vector2(targetNodePosition.x, targetNodePosition.z);
@@ -56,7 +76,7 @@ public class NodeManager : MonoBehaviour
             if (node == null) continue;
             Vector2 nodePosition2D = new Vector2(node.transform.position.x, node.transform.position.z);
             float distance = Vector2.Distance(position2D, nodePosition2D);
-            if (distance <= startBuildingDistance)
+            if (distance <= (startBuildingDistance + node.AdditionalTriggerDistance))
             {
                 return false;
             }
