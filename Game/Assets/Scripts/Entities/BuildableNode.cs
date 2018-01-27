@@ -50,6 +50,9 @@ public class BuildableNode : MonoBehaviour
 
     private SpriteRenderer triggerDistanceRenderer;
 
+    [SerializeField]
+    private BuildableType buildableType;
+
     // Use this for initialization
     void Start()
     {
@@ -112,9 +115,13 @@ public class BuildableNode : MonoBehaviour
         // if player has entered the range and presses E
         if (buildable && isCloseEnough && Input.GetKeyUp(KeyCode.E) && !nodeBuildingMode.BuildingModeOn)
         {
-            nodeBuildingMode.EnableBuildMode();
-            buildDistanceIndicator.gameObject.SetActive(true);
-            SetPathParent(player.gameObject);
+            if (ResourceManager.main.CanBuild(buildableType))
+            {
+                ResourceManager.main.Build(buildableType);
+                nodeBuildingMode.EnableBuildMode();
+                buildDistanceIndicator.gameObject.SetActive(true);
+                SetPathParent(player.gameObject);
+            }
         }
     }
 

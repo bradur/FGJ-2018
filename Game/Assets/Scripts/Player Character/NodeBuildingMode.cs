@@ -35,6 +35,7 @@ public class NodeBuildingMode : MonoBehaviour
             bool allowBuild = NodeManager.main.IsBuildingAllowed(transform.position, currentNode.transform.position);
             if (allowBuild)
             {
+
                 NodeManager.main.DeselectAll();
                 BuildableNode newNode = NodeManager.main.SpawnNode(transform.position);
                 currentNode.SetPathParent(newNode.gameObject);
