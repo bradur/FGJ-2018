@@ -266,7 +266,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4341378743347274, guid: 580321a18859e5a4b99cc8d40fffe694, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 580321a18859e5a4b99cc8d40fffe694, type: 2}
@@ -415,7 +415,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -954028598
+  randomSeed: 495892242
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3753,7 +3753,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4912838412933068, guid: 0f4f88be5406f5d4ca5dc4b55e78f44d, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4903757496817362, guid: 0f4f88be5406f5d4ca5dc4b55e78f44d, type: 2}
       propertyPath: m_LocalRotation.x
@@ -3854,7 +3854,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 0
+  m_RenderMode: 4
   m_SortMode: 0
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.01
@@ -3867,7 +3867,7 @@ ParticleSystemRenderer:
   m_Pivot: {x: 0, y: 0, z: 0}
   m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
@@ -3882,7 +3882,7 @@ ParticleSystem:
   lengthInSec: 1
   simulationSpeed: 1
   stopAction: 0
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -3939,7 +3939,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.12
+      scalar: 0.1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -3980,7 +3980,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 2
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -4084,7 +4084,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.11
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4492,7 +4492,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 32.5
+      scalar: 70
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -7233,48 +7233,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!1001 &1016699300
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4691824999238398, guid: 3c38715a04c4f2b459d56afdbe7012ae, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -3.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 4691824999238398, guid: 3c38715a04c4f2b459d56afdbe7012ae, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 2.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 4691824999238398, guid: 3c38715a04c4f2b459d56afdbe7012ae, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4691824999238398, guid: 3c38715a04c4f2b459d56afdbe7012ae, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4691824999238398, guid: 3c38715a04c4f2b459d56afdbe7012ae, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4691824999238398, guid: 3c38715a04c4f2b459d56afdbe7012ae, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4691824999238398, guid: 3c38715a04c4f2b459d56afdbe7012ae, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4691824999238398, guid: 3c38715a04c4f2b459d56afdbe7012ae, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 3c38715a04c4f2b459d56afdbe7012ae, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &1176254360
 Prefab:
   m_ObjectHideFlags: 0
@@ -7403,8 +7361,50 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1363143608
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4635641817220862, guid: 80f2e92aa4a03a54c9c57a891db52be8, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -5.2084646
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635641817220862, guid: 80f2e92aa4a03a54c9c57a891db52be8, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.00019387997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635641817220862, guid: 80f2e92aa4a03a54c9c57a891db52be8, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.11965518
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635641817220862, guid: 80f2e92aa4a03a54c9c57a891db52be8, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635641817220862, guid: 80f2e92aa4a03a54c9c57a891db52be8, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635641817220862, guid: 80f2e92aa4a03a54c9c57a891db52be8, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635641817220862, guid: 80f2e92aa4a03a54c9c57a891db52be8, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635641817220862, guid: 80f2e92aa4a03a54c9c57a891db52be8, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 80f2e92aa4a03a54c9c57a891db52be8, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &1432138186
 Prefab:
   m_ObjectHideFlags: 0
@@ -7442,7 +7442,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4266271163745970, guid: 21943a9d0168c6c4994d5e0fdeea2ef8, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4929805118529732, guid: 21943a9d0168c6c4994d5e0fdeea2ef8, type: 2}
       propertyPath: m_LocalRotation.x
@@ -7462,6 +7462,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4929805118529732, guid: 21943a9d0168c6c4994d5e0fdeea2ef8, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114895339977362432, guid: 21943a9d0168c6c4994d5e0fdeea2ef8,
+        type: 2}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -7550,7 +7555,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ad0c465c6d2781643b1dce532e58ae34, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7602,7 +7607,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2100635447
 Prefab:
