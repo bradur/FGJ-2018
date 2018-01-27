@@ -16,9 +16,6 @@ public class NodeBuildingMode : MonoBehaviour
     [SerializeField]
     private GameObject uiCanBuildIndicator;
 
-    [SerializeField]
-    private GameObject nodePrefab;
-
     private NodeProximityChecker currentNode;
 
     private bool isInRange = false;
@@ -32,11 +29,18 @@ public class NodeBuildingMode : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (buildingModeOn && !isInRange && Input.GetKeyUp(KeyCode.E))
+        if (buildingModeOn && currentNode != null && Input.GetKeyUp(KeyCode.E))
         {
-            GameObject newNode = Instantiate(nodePrefab);
-            newNode.transform.position = new Vector3(transform.position.x, nodePrefab.transform.position.y, transform.position.z);
-            Disable();
+            /*Vector2 currentNodePosition = new Vector2(currentNode.transform.position.x, currentNode.transform.position.z);
+            Vector2 currentPosition = new Vector2(transform.position.x, transform.position.z);
+            float currentNodeDistance = Vector2.Distance(currentPosition, currentNodePosition);*/
+            bool allowBuild = NodeManager.main.IsBuildingAllowed(transform.position, currentNode.transform.position);
+            if (allowBuild)
+            {
+                currentNode.Deselect();
+                NodeManager.main.SpawnNode(transform.position);
+                Disable();
+            }
         }
     }
 
@@ -118,7 +122,7 @@ public class NodeBuildingMode : MonoBehaviour
         }
     }
 
-/*    public void HideBuildMessage()
+    /*public void HideBuildMessage()
     {
         uiCanBuildIndicator.SetActive(false);
     }*/
