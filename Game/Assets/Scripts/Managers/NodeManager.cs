@@ -80,4 +80,12 @@ public class NodeManager : MonoBehaviour
         newNode.Select();
     }
 
+    public void DeselectAll()
+    {
+        foreach (BuildableNode node in nodes)
+        {
+            node.Deselect();
+        }
+    }
+
 }

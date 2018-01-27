@@ -936,15 +936,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: 114627955270093870, guid: 9f43909b4ed42154fb550b551fae6b32,
-        type: 2}
-      propertyPath: plane
-      value: 
-      objectReference: {fileID: 2054355064}
-    - target: {fileID: 1357891757342044, guid: 9f43909b4ed42154fb550b551fae6b32, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f43909b4ed42154fb550b551fae6b32, type: 2}
   m_IsPrefabParent: 0
@@ -2229,6 +2220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selected: {fileID: 2100000, guid: 83fa7154f05a8274cb8644b4d0450da8, type: 2}
+  selectedNotBuildableColor: {r: 0, g: 0, b: 0, a: 0}
   pathIndicator: {fileID: 0}
   triggerDistanceIndicator: {fileID: 38511455}
   buildDistanceIndicator: {fileID: 1378038500}
@@ -2377,7 +2369,7 @@ Transform:
   m_PrefabParentObject: {fileID: 496262, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 968798251}
-  m_LocalRotation: {x: 0.53267515, y: 0.07034045, z: 0.83613265, w: -0.11041513}
+  m_LocalRotation: {x: 0.5326752, y: 0.070340455, z: 0.83613276, w: -0.110415146}
   m_LocalPosition: {x: 0.000022271464, y: -0.00006150465, z: 0.026027026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

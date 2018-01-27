@@ -21,6 +21,11 @@ public class BuildableNode : MonoBehaviour
     private Material selected;
 
     [SerializeField]
+    private Color selectedNotBuildableColor;
+
+    private Color defaultColor;
+
+    [SerializeField]
     private ViaToChild pathIndicator;
 
     private Material deselected;
@@ -36,9 +41,17 @@ public class BuildableNode : MonoBehaviour
     [SerializeField]
     private Transform nodeTransform;
 
+    private bool buildable = true;
+    public bool Buildable { get { return buildable; } }
+    private bool isSelected = false;
+
+    private SpriteRenderer triggerDistanceRenderer;
+
     // Use this for initialization
     void Start()
     {
+        triggerDistanceRenderer = triggerDistanceIndicator.GetComponent<SpriteRenderer>();
+        defaultColor = triggerDistanceRenderer.color;
         meshRenderer = nodeTransform.GetComponent<MeshRenderer>();
         player = GameManager.main.Player;
         deselected = meshRenderer.material;
@@ -55,31 +68,61 @@ public class BuildableNode : MonoBehaviour
         Vector2 position2D = new Vector2(nodeTransform.position.x, nodeTransform.position.z);
         Vector2 playerPosition2D = new Vector2(player.position.x, player.position.z);
         float distance = Vector2.Distance(position2D, playerPosition2D);
-        // if player hasn't entered the range before but is now within the range
+        // if is within the range
         if (distance <= triggerDistance)
         {
             isCloseEnough = true;
-            nodeBuildingMode.ShowBuildMessage(distance, this);
-            nodeBuildingMode.EnterBuildRange();
+            if (buildable)
+            {
+                if (!nodeBuildingMode.BuildingModeOn)
+                {
+                    triggerDistanceRenderer.color = defaultColor;
+                }
+                else
+                {
+                    triggerDistanceRenderer.color = selectedNotBuildableColor;
+                }
+                nodeBuildingMode.ShowBuildMessage(distance, this);
+            }
+            if (!isSelected)
+            {
+                Select();
+            }
         }
         // if player has entered the range but is now outside the range
-        else if (isCloseEnough && distance > triggerDistance)
+        else if (distance > triggerDistance)
         {
-            isCloseEnough = false;
-            if (!nodeBuildingMode.BuildingModeOn)
-            {
-                nodeBuildingMode.ClearCurrentNode(this);
+            if (isCloseEnough) {
+                isCloseEnough = false;
+                if (!nodeBuildingMode.BuildingModeOn)
+                {
+                    triggerDistanceRenderer.color = defaultColor;
+                    nodeBuildingMode.ClearCurrentNode(this);
+                }
+                else
+                {
+                    triggerDistanceRenderer.color = selectedNotBuildableColor;
+                }
             }
-            //nodeBuildingMode.ClearCurrentNode(this);
-            nodeBuildingMode.ExitBuildRange();
+            if (isSelected && !nodeBuildingMode.IsCurrentNode(this))
+            {
+                Deselect();
+            }
         }
         // if player has entered the range and presses E
-        if (isCloseEnough && Input.GetKeyUp(KeyCode.E) && !nodeBuildingMode.BuildingModeOn)
+        if (buildable && isCloseEnough && Input.GetKeyUp(KeyCode.E) && !nodeBuildingMode.BuildingModeOn)
         {
             nodeBuildingMode.EnableBuildMode();
             buildDistanceIndicator.gameObject.SetActive(true);
             SetPathParent(player.gameObject);
         }
+    }
+
+    public void SetUnbuildable()
+    {
+        triggerDistanceRenderer.color = selectedNotBuildableColor;
+        buildable = false;
+        Deselect();
     }
 
     public void SetPathParent(GameObject parent)
@@ -92,7 +135,11 @@ public class BuildableNode : MonoBehaviour
     /// </summary>
     public void Select()
     {
-        meshRenderer.material = selected;
+        isSelected = true;
+        if (!buildable)
+        {
+            meshRenderer.material = selected;
+        }
         triggerDistanceIndicator.gameObject.SetActive(true);
     }
 
@@ -101,6 +148,7 @@ public class BuildableNode : MonoBehaviour
     /// </summary>
     public void Deselect()
     {
+        isSelected = false;
         meshRenderer.material = deselected;
         buildDistanceIndicator.gameObject.SetActive(false);
         triggerDistanceIndicator.gameObject.SetActive(false);

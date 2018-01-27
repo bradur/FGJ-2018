@@ -290,6 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selected: {fileID: 2100000, guid: 83fa7154f05a8274cb8644b4d0450da8, type: 2}
+  selectedNotBuildableColor: {r: 0.53103447, g: 0, b: 1, a: 0.403}
   pathIndicator: {fileID: 114627955270093870}
   triggerDistanceIndicator: {fileID: 4074264917067284}
   buildDistanceIndicator: {fileID: 4769473790835892}
@@ -308,7 +309,6 @@ MonoBehaviour:
   viaRenderer: {fileID: 120305028644336634}
   children: []
   parent: {fileID: 0}
-  plane: {fileID: 0}
   ownVia: {fileID: 1135951581998278}
 --- !u!120 &120305028644336634
 LineRenderer:

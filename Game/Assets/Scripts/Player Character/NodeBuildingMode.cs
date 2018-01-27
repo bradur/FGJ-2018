@@ -18,8 +18,6 @@ public class NodeBuildingMode : MonoBehaviour
 
     private BuildableNode currentNode;
 
-    private bool isInRange = false;
-
     // Use this for initialization
     void Start()
     {
@@ -37,8 +35,10 @@ public class NodeBuildingMode : MonoBehaviour
             bool allowBuild = NodeManager.main.IsBuildingAllowed(transform.position, currentNode.transform.position);
             if (allowBuild)
             {
+                NodeManager.main.DeselectAll();
                 BuildableNode newNode = NodeManager.main.SpawnNode(transform.position);
                 currentNode.SetPathParent(newNode.gameObject);
+                currentNode.SetUnbuildable();
                 currentNode.Deselect();
                 Disable();
             }
@@ -53,16 +53,6 @@ public class NodeBuildingMode : MonoBehaviour
         buildingModeOn = false;
         uiBuildModeIndicator.SetActive(false);
         GameManager.main.HideBuildIndicator();
-    }
-
-    public void ExitBuildRange()
-    {
-        isInRange = false;
-    }
-
-    public void EnterBuildRange()
-    {
-        isInRange = true;
     }
 
     /// <summary>
@@ -107,6 +97,11 @@ public class NodeBuildingMode : MonoBehaviour
                 }
             }
         }
+    }
+
+    public bool IsCurrentNode(BuildableNode node)
+    {
+        return currentNode == node;
     }
 
     /// <summary>
