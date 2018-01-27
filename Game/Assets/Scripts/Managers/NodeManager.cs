@@ -6,10 +6,10 @@ public class NodeManager : MonoBehaviour
 {
 
     [SerializeField]
-    private NodeProximityChecker nodePrefab;
+    private BuildableNode nodePrefab;
 
     [SerializeField]
-    private List<NodeProximityChecker> nodes = new List<NodeProximityChecker>();
+    private List<BuildableNode> nodes = new List<BuildableNode>();
 
     public static NodeManager main;
 
@@ -50,7 +50,7 @@ public class NodeManager : MonoBehaviour
         {
             return false;
         }
-        foreach(NodeProximityChecker node in nodes)
+        foreach(BuildableNode node in nodes)
         {
             Vector2 nodePosition2D = new Vector2(node.transform.position.x, node.transform.position.z);
             float distance = Vector2.Distance(position2D, nodePosition2D);
@@ -62,18 +62,18 @@ public class NodeManager : MonoBehaviour
         return true;
     }
 
-    public NodeProximityChecker SpawnNode(Vector3 position)
+    public BuildableNode SpawnNode(Vector3 position)
     {
-        NodeProximityChecker newNode = Instantiate(nodePrefab);
+        BuildableNode newNode = Instantiate(nodePrefab);
         newNode.gameObject.SetActive(true);
         newNode.transform.position = new Vector3(position.x, nodePrefab.transform.position.y, position.z);
         nodes.Add(newNode);
         return newNode;
     }
 
-    public void SelectNode(NodeProximityChecker newNode)
+    public void SelectNode(BuildableNode newNode)
     {
-        foreach (NodeProximityChecker node in nodes)
+        foreach (BuildableNode node in nodes)
         {
             node.Deselect();
         }

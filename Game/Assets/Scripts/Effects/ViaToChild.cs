@@ -14,15 +14,20 @@ public class ViaToChild : MonoBehaviour
     [SerializeField]
     GameObject parent;
 
-    [SerializeField]
     GameObject plane;
 
     [SerializeField]
     GameObject ownVia;
 
+    public void SetParent(GameObject newParent)
+    {
+        parent = newParent;
+    }
+
     // Use this for initialization
     void Start()
     {
+        plane = GameManager.main.Plane;
         viaRenderer = ownVia.GetComponent<LineRenderer>();
         viaRenderer.alignment = LineAlignment.Local;
     }

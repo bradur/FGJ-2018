@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NodeProximityChecker : MonoBehaviour
+public class BuildableNode : MonoBehaviour
 {
 
     private Transform player;
@@ -19,6 +19,9 @@ public class NodeProximityChecker : MonoBehaviour
 
     [SerializeField]
     private Material selected;
+
+    [SerializeField]
+    private ViaToChild pathIndicator;
 
     private Material deselected;
 
@@ -75,7 +78,13 @@ public class NodeProximityChecker : MonoBehaviour
         {
             nodeBuildingMode.EnableBuildMode();
             buildDistanceIndicator.gameObject.SetActive(true);
+            SetPathParent(player.gameObject);
         }
+    }
+
+    public void SetPathParent(GameObject parent)
+    {
+        pathIndicator.SetParent(parent);
     }
 
     /// <summary>
