@@ -129,7 +129,6 @@ MonoBehaviour:
   viaRenderer: {fileID: 120963888904182844}
   children: []
   parent: {fileID: 0}
-  plane: {fileID: 0}
   ownVia: {fileID: 1776861864546000}
 --- !u!120 &120321188930154240
 LineRenderer:
@@ -170,7 +169,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 1
+    widthMultiplier: 0.25
     widthCurve:
       serializedVersion: 2
       m_Curve:
@@ -259,7 +258,7 @@ LineRenderer:
   - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 2
-    widthMultiplier: 1
+    widthMultiplier: 0.5
     widthCurve:
       serializedVersion: 2
       m_Curve:
