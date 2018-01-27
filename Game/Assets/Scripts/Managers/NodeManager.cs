@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class NodeManager : MonoBehaviour
@@ -80,4 +81,13 @@ public class NodeManager : MonoBehaviour
         newNode.Select();
     }
 
+    public List<BuildableNode> GetNodes(bool getRoot = false)
+    {
+        if(getRoot)
+        {
+            return nodes;
+        }
+
+        return nodes.Where(x => !x.IsRoot).ToList();
+    }
 }

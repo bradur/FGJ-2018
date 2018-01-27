@@ -36,6 +36,11 @@ public class BuildableNode : MonoBehaviour
     [SerializeField]
     private Transform nodeTransform;
 
+    [SerializeField]
+    private bool isRoot;
+
+    public bool IsRoot { get { return isRoot; } }
+
     // Use this for initialization
     void Start()
     {

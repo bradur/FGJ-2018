@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
 
     public GameObject Plane { get { return plane; } }
 
+    [SerializeField]
+    private NodeManager nodeManager;
+
+    public NodeManager NodeManager { get { return nodeManager; } }
+
     void Awake()
     {
         main = this;
