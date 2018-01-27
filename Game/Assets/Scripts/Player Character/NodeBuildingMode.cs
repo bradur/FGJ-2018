@@ -16,7 +16,7 @@ public class NodeBuildingMode : MonoBehaviour
     [SerializeField]
     private GameObject uiCanBuildIndicator;
 
-    private NodeProximityChecker currentNode;
+    private BuildableNode currentNode;
 
     private bool isInRange = false;
 
@@ -37,8 +37,9 @@ public class NodeBuildingMode : MonoBehaviour
             bool allowBuild = NodeManager.main.IsBuildingAllowed(transform.position, currentNode.transform.position);
             if (allowBuild)
             {
+                BuildableNode newNode = NodeManager.main.SpawnNode(transform.position);
+                currentNode.SetPathParent(newNode.gameObject);
                 currentNode.Deselect();
-                NodeManager.main.SpawnNode(transform.position);
                 Disable();
             }
         }
@@ -82,7 +83,7 @@ public class NodeBuildingMode : MonoBehaviour
     /// </summary>
     /// <param name="distance"></param>
     /// <param name="node"></param>
-    public void ShowBuildMessage(float distance, NodeProximityChecker node)
+    public void ShowBuildMessage(float distance, BuildableNode node)
     {
         if (!buildingModeOn)
         {
@@ -112,7 +113,7 @@ public class NodeBuildingMode : MonoBehaviour
     /// Deselect current node and disable "can build" indicator.
     /// </summary>
     /// <param name="node"></param>
-    public void ClearCurrentNode(NodeProximityChecker node)
+    public void ClearCurrentNode(BuildableNode node)
     {
         if (currentNode == node)
         {

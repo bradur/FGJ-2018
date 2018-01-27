@@ -20,6 +20,11 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject buildIndicator;
 
+    [SerializeField]
+    private GameObject plane;
+
+    public GameObject Plane { get { return plane; } }
+
     void Awake()
     {
         main = this;
