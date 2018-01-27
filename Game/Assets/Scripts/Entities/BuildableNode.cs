@@ -30,8 +30,6 @@ public class BuildableNode : MonoBehaviour
 
     private Material deselected;
 
-    private MeshRenderer meshRenderer;
-
     [SerializeField]
     private Transform triggerDistanceIndicator;
 
@@ -52,9 +50,7 @@ public class BuildableNode : MonoBehaviour
     {
         triggerDistanceRenderer = triggerDistanceIndicator.GetComponent<SpriteRenderer>();
         defaultColor = triggerDistanceRenderer.color;
-        meshRenderer = nodeTransform.GetComponent<MeshRenderer>();
         player = GameManager.main.Player;
-        deselected = meshRenderer.material;
         nodeBuildingMode = player.GetComponent<NodeBuildingMode>();
         triggerDistance = NodeManager.main.StartBuildingDistance;
         buildDistance = NodeManager.main.BuildingDistance;
@@ -96,7 +92,6 @@ public class BuildableNode : MonoBehaviour
                 isCloseEnough = false;
                 if (!nodeBuildingMode.BuildingModeOn)
                 {
-                    triggerDistanceRenderer.color = defaultColor;
                     nodeBuildingMode.ClearCurrentNode(this);
                 }
                 else
@@ -136,10 +131,7 @@ public class BuildableNode : MonoBehaviour
     public void Select()
     {
         isSelected = true;
-        if (!buildable)
-        {
-            meshRenderer.material = selected;
-        }
+
         triggerDistanceIndicator.gameObject.SetActive(true);
     }
 
@@ -149,7 +141,6 @@ public class BuildableNode : MonoBehaviour
     public void Deselect()
     {
         isSelected = false;
-        meshRenderer.material = deselected;
         buildDistanceIndicator.gameObject.SetActive(false);
         triggerDistanceIndicator.gameObject.SetActive(false);
     }
