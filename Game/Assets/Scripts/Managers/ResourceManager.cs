@@ -60,7 +60,6 @@ public class ResourceManager : MonoBehaviour
         {
             if (resourceType == resource.resourceType && (amount <= resource.count))
             {
-                Debug.Log(amount + "<=" + resource.count);
                 return true;
             }
         }

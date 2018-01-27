@@ -29,19 +29,27 @@ public class NodeBuildingMode : MonoBehaviour
     {
         if (buildingModeOn && currentNode != null && Input.GetKeyUp(KeyCode.E))
         {
-            /*Vector2 currentNodePosition = new Vector2(currentNode.transform.position.x, currentNode.transform.position.z);
-            Vector2 currentPosition = new Vector2(transform.position.x, transform.position.z);
-            float currentNodeDistance = Vector2.Distance(currentPosition, currentNodePosition);*/
             bool allowBuild = NodeManager.main.IsBuildingAllowed(transform.position, currentNode.transform.position);
             if (allowBuild)
             {
-
                 NodeManager.main.DeselectAll();
                 BuildableNode newNode = NodeManager.main.SpawnNode(transform.position);
                 currentNode.SetPathParent(newNode.gameObject);
                 currentNode.SetUnbuildable();
                 currentNode.Deselect();
                 Disable();
+            }
+            else
+            {
+                BuildableNode node = NodeManager.main.AttemptConnection(transform.position, currentNode.transform.position);
+                if (node != null)
+                {
+                    NodeManager.main.DeselectAll();
+                    currentNode.SetPathParent(node.gameObject);
+                    currentNode.SetUnbuildable();
+                    currentNode.Deselect();
+                    Disable();
+                }
             }
         }
     }

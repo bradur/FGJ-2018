@@ -43,7 +43,7 @@ public class BuildableNode : MonoBehaviour
     private bool isRoot;
 
     public bool IsRoot { get { return isRoot; } }
-    
+
     private bool buildable = true;
     public bool Buildable { get { return buildable; } }
     private bool isSelected = false;
@@ -53,6 +53,17 @@ public class BuildableNode : MonoBehaviour
     [SerializeField]
     private BuildableType buildableType;
 
+    [SerializeField]
+    private bool connectableNode = false;
+
+    public bool ConnectableNode { get { return connectableNode; } }
+
+    [SerializeField]
+    [Range(0f, 10f)]
+    private float additionalTriggerDistance = 0f;
+
+    public float AdditionalTriggerDistance { get { return additionalTriggerDistance; } }
+
     // Use this for initialization
     void Start()
     {
@@ -60,7 +71,7 @@ public class BuildableNode : MonoBehaviour
         defaultColor = triggerDistanceRenderer.color;
         player = GameManager.main.Player;
         nodeBuildingMode = player.GetComponent<NodeBuildingMode>();
-        triggerDistance = NodeManager.main.StartBuildingDistance;
+        triggerDistance = NodeManager.main.StartBuildingDistance + additionalTriggerDistance;
         buildDistance = NodeManager.main.BuildingDistance;
         triggerDistanceIndicator.localScale = new Vector3(triggerDistance * 2, triggerDistance * 2, triggerDistanceIndicator.localScale.y);
         buildDistanceIndicator.localScale = new Vector3(buildDistance * 2, buildDistance * 2, buildDistanceIndicator.localScale.y);
@@ -80,11 +91,25 @@ public class BuildableNode : MonoBehaviour
             {
                 if (!nodeBuildingMode.BuildingModeOn)
                 {
-                    triggerDistanceRenderer.color = defaultColor;
+                    if (connectableNode)
+                    {
+                        triggerDistanceRenderer.color = selectedNotBuildableColor;
+                    }
+                    else
+                    {
+                        triggerDistanceRenderer.color = defaultColor;
+                    }
                 }
                 else
                 {
-                    triggerDistanceRenderer.color = selectedNotBuildableColor;
+                    if (connectableNode)
+                    {
+                        triggerDistanceRenderer.color = defaultColor;
+                    }
+                    else
+                    {
+                        triggerDistanceRenderer.color = selectedNotBuildableColor;
+                    }
                 }
                 nodeBuildingMode.ShowBuildMessage(distance, this);
             }
@@ -96,7 +121,8 @@ public class BuildableNode : MonoBehaviour
         // if player has entered the range but is now outside the range
         else if (distance > triggerDistance)
         {
-            if (isCloseEnough) {
+            if (isCloseEnough)
+            {
                 isCloseEnough = false;
                 if (!nodeBuildingMode.BuildingModeOn)
                 {
@@ -113,7 +139,7 @@ public class BuildableNode : MonoBehaviour
             }
         }
         // if player has entered the range and presses E
-        if (buildable && isCloseEnough && Input.GetKeyUp(KeyCode.E) && !nodeBuildingMode.BuildingModeOn)
+        if (buildable && isCloseEnough && Input.GetKeyUp(KeyCode.E) && !nodeBuildingMode.BuildingModeOn && !connectableNode)
         {
             if (ResourceManager.main.CanBuild(buildableType))
             {

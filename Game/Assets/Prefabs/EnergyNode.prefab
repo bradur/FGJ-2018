@@ -387,6 +387,8 @@ MonoBehaviour:
   nodeTransform: {fileID: 4898544717228110}
   isRoot: 0
   buildableType: 1
+  connectableNode: 0
+  additionalTriggerDistance: 0
 --- !u!114 &114627955270093870
 MonoBehaviour:
   m_ObjectHideFlags: 1
