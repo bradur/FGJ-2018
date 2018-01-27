@@ -90,4 +90,13 @@ public class NodeManager : MonoBehaviour
 
         return nodes.Where(x => !x.IsRoot).ToList();
     }
+    
+    public void DeselectAll()
+    {
+        foreach (BuildableNode node in nodes)
+        {
+            node.Deselect();
+        }
+    }
+
 }
