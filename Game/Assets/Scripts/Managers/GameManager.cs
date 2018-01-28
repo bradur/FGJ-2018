@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,11 +36,17 @@ public class GameManager : MonoBehaviour
 
     private float signalSent = 0f;
 
+    [SerializeField]
+    private int enemyDropAmount;
+
+    public int EnemyDropAmount { get { return enemyDropAmount; } }
+    
     private float dataSendInterval = 0.5f;
     private float dataSendTimer = 0f;
 
     [SerializeField]
     private DataFilledIndicator dataFilledIndicator;
+    
 
     void Awake()
     {
@@ -87,5 +94,10 @@ public class GameManager : MonoBehaviour
         {
             //gameover
         }
+    }
+
+    public float GetConnections()
+    {
+        return nodeManager.GetConnections();
     }
 }
