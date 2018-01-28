@@ -73,6 +73,8 @@ public class Enemy : MonoBehaviour
         gameObject.SetActive(false);
         body.isKinematic = true;
         isAttacking = false;
+        ResourceManager.main.WithDraw(ResourceType.Enemy, 1);
+        ResourceManager.main.Deposit(ResourceType.Data, GameManager.main.EnemyDropAmount);
     }
 
     public void Activate()

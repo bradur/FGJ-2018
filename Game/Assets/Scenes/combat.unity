@@ -302,7 +302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &101117323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -632,6 +632,54 @@ Transform:
   - {fileID: 939761820}
   m_Father: {fileID: 690588026}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &151118332
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 151118334}
+  - component: {fileID: 151118333}
+  m_Layer: 0
+  m_Name: WaveSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &151118333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 151118332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 798c1170bfd39164196a5cad31c2664e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyManager: {fileID: 611747927}
+  timeBetweenWaves: 10
+  waves:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+--- !u!4 &151118334
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 151118332}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.4731379, y: -3.3497944, z: 3.0225527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &160706622
 GameObject:
@@ -4878,7 +4926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hudData: {fileID: 1822523242}
-  hudEnemies: {fileID: 0}
+  hudEnemies: {fileID: 2128674084}
 --- !u!114 &1136486896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6150,6 +6198,7 @@ MonoBehaviour:
   plane: {fileID: 433345599}
   nodeManager: {fileID: 2021569694}
   SignalGoal: 10000
+  enemyDropAmount: 10
 --- !u!4 &1222024630
 Transform:
   m_ObjectHideFlags: 0
@@ -8422,11 +8471,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resources:
-  - resourceType: 1
+  - resourceType: 2
     count: 200
+  - resourceType: 1
+    count: 0
   buildables:
   - buildableType: 1
-    costType: 1
+    costType: 2
     cost: 20
 --- !u!4 &1825815473
 Transform:
@@ -9906,6 +9957,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2128674082}
   - component: {fileID: 2128674083}
+  - component: {fileID: 2128674084}
   m_Layer: 5
   m_Name: VirusCounter
   m_TagString: Untagged
@@ -9939,6 +9991,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2128674081}
+--- !u!114 &2128674084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2128674081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49bc6ba5460f0af48a889f14b63fe6f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txtCount: {fileID: 1625669005}
 --- !u!1 &2132634118
 GameObject:
   m_ObjectHideFlags: 0
