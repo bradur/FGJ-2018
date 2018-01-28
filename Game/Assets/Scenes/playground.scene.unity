@@ -3932,7 +3932,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 712117638
+  randomSeed: 1702783007
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -7555,7 +7555,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ad0c465c6d2781643b1dce532e58ae34, type: 2}
+  - {fileID: 2100000, guid: 8d73559e82a4a914e8d9b9a2619e6e2d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -10,7 +10,7 @@ public class RandomSpawner : MonoBehaviour
     [SerializeField]
     DropManager dropManager;
 
-    float testInterval = 1f;
+    float testInterval = 1.5f;
     float lastTime = 0f;
 
     // Use this for initialization
@@ -28,8 +28,8 @@ public class RandomSpawner : MonoBehaviour
             //enemyManager.SpawnEnemy(random);
             enemyManager.SpawnEnemyToOutside();
 
-            random = new Vector3(Random.value * 5, 1.05f, Random.value * 5);
-            dropManager.SpawnDrop(random);
+            //random = new Vector3(Random.value * 5, 1.05f, Random.value * 5);
+            //dropManager.SpawnDrop(random);
         }
     }
 }

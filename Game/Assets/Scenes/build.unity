@@ -1335,7 +1335,7 @@ MonoBehaviour:
   buildDistanceIndicator: {fileID: 1083351842}
   nodeTransform: {fileID: 1025618885}
   nodeCollider: {fileID: 661886182}
-  isRoot: 0
+  isRoot: 1
   health: 20
   buildableType: 1
   connectableNode: 1
@@ -1801,6 +1801,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 157167191}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &564563720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 564563722}
+  - component: {fileID: 564563721}
+  m_Layer: 0
+  m_Name: RandomSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &564563721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 564563720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1844760103f75e040a74898825579a17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyManager: {fileID: 1117525479}
+  dropManager: {fileID: 0}
+--- !u!4 &564563722
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 564563720}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.5764737, y: -5.760912, z: -3.3471138}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &578942265
 GameObject:
@@ -2654,6 +2696,11 @@ Prefab:
     - target: {fileID: 114223345389237424, guid: 9f43909b4ed42154fb550b551fae6b32,
         type: 2}
       propertyPath: additionalTriggerDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114223345389237424, guid: 9f43909b4ed42154fb550b551fae6b32,
+        type: 2}
+      propertyPath: isRoot
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4304,6 +4351,67 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1115458390}
+--- !u!1 &1117525477
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1117525480}
+  - component: {fileID: 1117525479}
+  - component: {fileID: 1117525478}
+  m_Layer: 0
+  m_Name: EnemyManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1117525478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1117525477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf4af29d2bc3467409b655704c5b416d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 114895339977362432, guid: 21943a9d0168c6c4994d5e0fdeea2ef8,
+    type: 2}
+  poolSize: 40
+  spawnMore: 0
+  poolContainer: {fileID: 1117525480}
+--- !u!114 &1117525479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1117525477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b8ad5b3f6ac5014dab83c60c924445d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRange: 20
+  enemyPool: {fileID: 1117525478}
+  nodeManager: {fileID: 1192968094}
+  gameManager: {fileID: 801288923}
+--- !u!4 &1117525480
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1117525477}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5764737, y: -5.760912, z: -3.3471138}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1125158502
 GameObject:
   m_ObjectHideFlags: 0
@@ -4564,6 +4672,7 @@ MonoBehaviour:
   nodes:
   - {fileID: 775768087}
   - {fileID: 1330151529}
+  - {fileID: 362577032}
   startBuildingDistance: 2.5
   buildingDistance: 8.5
 --- !u!1 &1196987003
@@ -5786,7 +5895,7 @@ MonoBehaviour:
   buildDistanceIndicator: {fileID: 1318481244}
   nodeTransform: {fileID: 963547627}
   nodeCollider: {fileID: 808271865}
-  isRoot: 0
+  isRoot: 1
   health: 20
   buildableType: 1
   connectableNode: 1
