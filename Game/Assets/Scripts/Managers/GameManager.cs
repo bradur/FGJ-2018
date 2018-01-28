@@ -76,7 +76,6 @@ public class GameManager : MonoBehaviour
     {
         buildIndicator.SetActive(false);
     }
-
     // Use this for initialization
     void Start()
     {
@@ -86,6 +85,8 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale =0f;
         }
+        Text txtMessage = finishedGameHUD.GetComponentInChildren<Text>();
+        txtMessage.text = "Well done!\nPress Enter to proceed";
     }
 
     bool connected = false;
@@ -111,11 +112,13 @@ public class GameManager : MonoBehaviour
         }
         else if(connections == 0 && signalSent > 0)
         {
+            //FinishLevel();
             FinishLevel();
             Text txtMessage = finishedGameHUD.GetComponentInChildren<Text>();
             txtMessage.text = "GAME OVER!";
+            gameOver = true;
         }
-        if (finished && Input.GetKeyUp(KeyCode.E))
+        if (finished && Input.GetKeyUp(KeyCode.Return))
         {
             NextLevel();
         }
