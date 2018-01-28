@@ -2236,6 +2236,8 @@ MonoBehaviour:
   rotateSpeed: 3
   kolvi: {fileID: 0}
   whackMinInterval: 0.3
+  hideAfterWhack: 0.6
+  showKolviInterval: 0.2
 --- !u!23 &511642119
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4876,6 +4878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hudData: {fileID: 1822523242}
+  hudEnemies: {fileID: 0}
 --- !u!114 &1136486896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6032,7 +6035,9 @@ MonoBehaviour:
   backWardSpeed: 6
   rotateSpeed: 3
   kolvi: {fileID: 1674613902}
-  whackMinInterval: 0.3
+  whackMinInterval: 0.249
+  hideAfterWhack: 0.6
+  showKolviInterval: 0.102
 --- !u!95 &1197730767 stripped
 Animator:
   m_PrefabParentObject: {fileID: 9500000, guid: a4b79e86b9e4e8440b1e0c0c8716dba2,
