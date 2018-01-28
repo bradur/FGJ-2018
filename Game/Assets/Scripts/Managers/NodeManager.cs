@@ -83,6 +83,8 @@ public class NodeManager : MonoBehaviour
         {
             foreach (GameObject child in node.GetPathChildren())
             {
+                if (child == null) continue;
+
                 BuildableNode childNode = child.GetComponent<BuildableNode>();
                 if (childNode != null && childNode.IsRoot && childNode != motherNode)
                 {

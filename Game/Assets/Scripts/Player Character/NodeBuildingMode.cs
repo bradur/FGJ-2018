@@ -35,6 +35,8 @@ public class NodeBuildingMode : MonoBehaviour
                 NodeManager.main.DeselectAll();
                 BuildableNode newNode = NodeManager.main.SpawnNode(transform.position);
                 //currentNode.SetPathParent(newNode.gameObject);
+                currentNode.DeletePathChild(GameManager.main.Player.gameObject);
+                newNode.DeletePathChild(GameManager.main.Player.gameObject);
                 newNode.SetPathParent(currentNode.gameObject);
                 currentNode.SetPathChild(newNode.gameObject);
                 //currentNode.SetUnbuildable();

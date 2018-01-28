@@ -168,8 +168,8 @@ public class BuildableNode : MonoBehaviour
         if(health <= 0)
         {
             gameObject.SetActive(false);
-            pathIndicator.DeleteChildren();
             pathIndicator.DeleteParent();
+            pathIndicator.DeleteChildren();
             //if player is building from this node, remove the reference and cancel the building
             Destroy(gameObject);
         }

@@ -36,6 +36,8 @@ public class EnemyManager : MonoBehaviour
         {
             enemy.transform.position = position;
         }
+
+        ResourceManager.main.Deposit(ResourceType.Enemy, 1);
     }
 
     public void SpawnEnemyToOutside()
