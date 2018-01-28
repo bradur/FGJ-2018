@@ -76,7 +76,7 @@ public class PlayerController3D : MonoBehaviour
             hideAfterTimer -= Time.deltaTime;
             if (hideAfterTimer <= 0f)
             {
-                kolvi.gameObject.SetActive(false);
+                //kolvi.gameObject.SetActive(false);
             }
         }
         if (whackTimer > whackMinInterval)
@@ -84,7 +84,7 @@ public class PlayerController3D : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.Space))
             {
                 showKolviTimer = showKolviInterval;
-                animator.SetTrigger("Action");
+                animator.SetTrigger("Whack");
                 whackTimer = 0f;
                 
                 hideAfterTimer = hideAfterWhack;
