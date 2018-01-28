@@ -6,7 +6,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
-    private float nodeCheckInterval = 10f;
+    private float nodeCheckInterval = 5f;
 
     [SerializeField]
     private float health;
