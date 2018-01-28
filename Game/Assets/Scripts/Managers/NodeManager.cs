@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,6 +64,38 @@ public class NodeManager : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public float GetConnections()
+    {
+        BuildableNode motherNode = nodes[0];
+        return getConnection(motherNode, motherNode);
+    }
+
+    private float getConnection(BuildableNode node, BuildableNode motherNode)
+    {
+        float connections = 0;
+        if (node == null || node.GetPathChildren() == null || node.GetPathChildren().Count == 0)
+        {
+            return 0;
+        }
+        else
+        {
+            foreach (GameObject child in node.GetPathChildren())
+            {
+                BuildableNode childNode = child.GetComponent<BuildableNode>();
+                if (childNode != null && childNode.IsRoot && childNode != motherNode)
+                {
+                    connections += 1;
+                }
+                else
+                {
+                    connections += getConnection(childNode, motherNode);
+                }
+            }
+        }
+
+        return connections;
     }
 
     public bool IsBuildingAllowed(Vector3 position, Vector3 targetNodePosition)

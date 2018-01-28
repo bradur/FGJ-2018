@@ -168,7 +168,7 @@ public class BuildableNode : MonoBehaviour
         if(health <= 0)
         {
             gameObject.SetActive(false);
-            pathIndicator.DeleteChild();
+            pathIndicator.DeleteChildren();
             pathIndicator.DeleteParent();
             //if player is building from this node, remove the reference and cancel the building
             Destroy(gameObject);
@@ -207,9 +207,14 @@ public class BuildableNode : MonoBehaviour
         connectableNode = true;
     }
 
-    public void DeletePathChild(bool deleteParent = true)
+    public void DeletePathChild(GameObject child, bool deleteParent = true)
     {
-        pathIndicator.DeleteChild(deleteParent);
+        pathIndicator.DeleteChild(child, deleteParent);
+    }
+
+    public List<GameObject> GetPathChildren()
+    {
+        return pathIndicator.GetChildren();
     }
 
     /// <summary>

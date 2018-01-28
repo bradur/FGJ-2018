@@ -30,6 +30,11 @@ public class GameManager : MonoBehaviour
 
     public NodeManager NodeManager { get { return nodeManager; } }
 
+    [SerializeField]
+    private float SignalGoal = 10000f;
+
+    private float signalSent = 0f;
+
     void Awake()
     {
         main = this;
@@ -55,6 +60,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        float connections = nodeManager.GetConnections();
+        Debug.Log(connections);
+        if (connections > 0)
+        {
+            signalSent += connections;
+        }
+        else if(connections == 0 && signalSent > 0)
+        {
+            //gameover
+        }
     }
 }

@@ -112,7 +112,7 @@ public class ViaToChild : MonoBehaviour
         }
     }
 
-    public void DeleteChild(bool deleteParent = true)
+    public void DeleteChild(GameObject node, bool deleteParent = true)
     {
         if (children.Count <= 0) return;
 
@@ -124,8 +124,21 @@ public class ViaToChild : MonoBehaviour
         {
             obj.DeletePathParent(false);
         }
-        children.Clear();
+
+        children.Remove(node);
     }
+
+    public void DeleteChildren(bool deleteParent = true)
+    {
+        if (children.Count <= 0) return;
+        
+        foreach(GameObject child in children)
+        {
+            if (child == null) continue;
+            DeleteChild(child, deleteParent);
+        }
+    }
+
 
     internal void SetChild(GameObject gameObject)
     {
@@ -145,7 +158,7 @@ public class ViaToChild : MonoBehaviour
 
         if (deleteChild)
         {
-            obj.DeletePathChild(false);
+            obj.DeletePathChild(parent, false);
         }
         parent = null;
     }
