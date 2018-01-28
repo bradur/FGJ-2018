@@ -42,7 +42,7 @@ public class ViaToChild : MonoBehaviour
 
             Vector3 p = parent.transform.position;
             Vector3 c = transform.position;
-            Vector3 b = plane.transform.position + new Vector3(0, 0.05f, 0);
+            Vector3 b = plane.transform.position + new Vector3(0, 0.35f, 0);
 
             Vector3 midPoint = Vector3.zero;
             Vector3 firstPoint = new Vector3(p.x, b.y, p.z);
