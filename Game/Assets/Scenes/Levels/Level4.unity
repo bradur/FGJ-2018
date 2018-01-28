@@ -4276,6 +4276,7 @@ MonoBehaviour:
   dataSendInterval: 0.95
   dataFilledIndicator: {fileID: 1887189491}
   enemyManager: {fileID: 1117525479}
+  splash: {fileID: 0}
   finishedGameHUD: {fileID: 881824938}
 --- !u!4 &801288924
 Transform:
@@ -4983,7 +4984,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4341378743347274, guid: 580321a18859e5a4b99cc8d40fffe694, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4341378743347274, guid: 580321a18859e5a4b99cc8d40fffe694, type: 2}
       propertyPath: m_LocalRotation.x
@@ -5263,7 +5264,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4341378743347274, guid: 580321a18859e5a4b99cc8d40fffe694, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4341378743347274, guid: 580321a18859e5a4b99cc8d40fffe694, type: 2}
       propertyPath: m_LocalRotation.x
@@ -7406,7 +7407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b8ad5b3f6ac5014dab83c60c924445d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRange: 40
+  spawnRange: 60
   enemyPool: {fileID: 1117525478}
   nodeManager: {fileID: 1192968094}
   gameManager: {fileID: 801288923}
@@ -10470,7 +10471,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 94.4
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
