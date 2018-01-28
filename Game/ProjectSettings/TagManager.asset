@@ -6,6 +6,7 @@ TagManager:
   tags:
   - EnergyNode
   - Enemy
+  - Kolvi
   layers:
   - Default
   - TransparentFX

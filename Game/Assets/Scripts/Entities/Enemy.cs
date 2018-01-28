@@ -63,6 +63,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    public void GetHit()
+    {
+        Deactivate();
+    }
+
     public void Deactivate()
     {
         gameObject.SetActive(false);

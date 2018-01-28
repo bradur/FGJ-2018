@@ -41,6 +41,6 @@ public class EnemyManager : MonoBehaviour
     public void SpawnEnemyToOutside()
     {
         Vector2 pos = Random.insideUnitCircle.normalized * spawnRange;
-        SpawnEnemy(new Vector3(pos.x, gameManager.Plane.transform.position.y+.5f, pos.y));
+        SpawnEnemy(new Vector3(pos.x, gameManager.Plane.transform.position.y+1.5f, pos.y));
     }
 }

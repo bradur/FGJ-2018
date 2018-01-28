@@ -34,15 +34,68 @@ public class PlayerController3D : MonoBehaviour
 
     private Vector3 m_Move;
 
+
+
+    [SerializeField]
+    private Kolvi kolvi;
+    [SerializeField]
+    [Range(0.1f, 1f)]
+    private float whackMinInterval = 0.7f;
+
+    private float whackTimer;
+
+    [SerializeField]
+    [Range(0.1f, 1f)]
+    private float hideAfterWhack = 0.6f;
+    private float hideAfterTimer = 0f;
+    [SerializeField]
+    [Range(0.1f, 1f)]
+    private float showKolviInterval = 0.2f;
+    private float showKolviTimer = 0f;
+
     // Use this for initialization
     void Start()
     {
+        whackTimer = whackMinInterval;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (showKolviTimer > 0f)
+        {
+            showKolviTimer -= Time.deltaTime;
+            if (showKolviTimer <= 0f)
+            {
+                kolvi.gameObject.SetActive(true);
+                kolvi.Whack();
+            }
+        }
+        if (hideAfterTimer > 0f)
+        {
+            hideAfterTimer -= Time.deltaTime;
+            if (hideAfterTimer <= 0f)
+            {
+                kolvi.gameObject.SetActive(false);
+            }
+        }
+        if (whackTimer > whackMinInterval)
+        {
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                showKolviTimer = showKolviInterval;
+                animator.SetTrigger("Action");
+                whackTimer = 0f;
+                
+                hideAfterTimer = hideAfterWhack;
+            }
+        }
+        else
+        {
+            whackTimer += Time.deltaTime;
+        }
     }
+
 
     private void FixedUpdate()
     {
