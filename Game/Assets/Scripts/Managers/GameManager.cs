@@ -58,6 +58,9 @@ public class GameManager : MonoBehaviour
 
     public EnemyManager EnemyManager { get { return enemyManager; } }
 
+    [SerializeField]
+    public GameObject splash;
+
     void Awake()
     {
         main = this;
@@ -77,7 +80,12 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        
         Time.timeScale = 1f;
+        if (splash != null)
+        {
+            Time.timeScale =0f;
+        }
     }
 
     bool connected = false;
@@ -111,6 +119,11 @@ public class GameManager : MonoBehaviour
         {
             NextLevel();
         }
+        if (splash != null && Input.GetKeyUp(KeyCode.E))
+        {
+            splash.gameObject.SetActive(false);
+            Time.timeScale = 1f;
+        }
     }
 
 
@@ -120,7 +133,10 @@ public class GameManager : MonoBehaviour
         {
             Application.Quit();
         }
-        SceneManager.LoadScene(nextLevel);
+        else
+        {
+            SceneManager.LoadScene(nextLevel);
+        }
     }
 
     private bool finished = false;
