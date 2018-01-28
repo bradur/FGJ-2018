@@ -44,6 +44,6 @@ public class DataFilledIndicator : MonoBehaviour
                 return;
             }
         }
-        Debug.Log("WhollyFilled!");
+        GameManager.main.FinishLevel();
     }
 }

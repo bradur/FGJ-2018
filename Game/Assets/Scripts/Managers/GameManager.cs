@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -35,6 +36,9 @@ public class GameManager : MonoBehaviour
     private float SignalGoal = 100f;
 
     private float signalSent = 0f;
+
+    [SerializeField]
+    private int nextLevel;
 
     [SerializeField]
     private int enemyDropAmount;
@@ -71,7 +75,7 @@ public class GameManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        Time.timeScale = 1f;
     }
 
     bool connected = false;
@@ -98,6 +102,22 @@ public class GameManager : MonoBehaviour
         {
             //gameover
         }
+        if (finished && Input.GetKeyUp(KeyCode.E))
+        {
+            SceneManager.LoadScene(nextLevel);
+        }
+    }
+
+
+    private bool finished = false;
+    [SerializeField]
+    private GameObject finishedGameHUD;
+
+    public void FinishLevel()
+    {
+        finishedGameHUD.SetActive(true);
+        Time.timeScale = 0f;
+        finished = true;
     }
 
     public float GetConnections()
