@@ -13,6 +13,7 @@ public class DataFilledIndicator : MonoBehaviour
 
     private float timer = 0f;
 
+
     // Use this for initialization
     void Start()
     {
@@ -22,23 +23,24 @@ public class DataFilledIndicator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timer <= 1f)
+        /*if (timer <= 1f)
         {
             timer += Time.deltaTime;
         } else
         {
             AddData(1);
             timer = 0f;
-        }
+        }*/
     }
 
-    public void AddData(int amount)
+
+    public void AddData(float amount)
     {
         foreach(Image newImage in images)
         {
             if (newImage.fillAmount < 1f)
             {
-                newImage.fillAmount += fillStep;
+                newImage.fillAmount += amount * fillStep;
                 return;
             }
         }
