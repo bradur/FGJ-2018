@@ -407,6 +407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodePrefab: {fileID: 114223345389237424, guid: 9f43909b4ed42154fb550b551fae6b32,
     type: 2}
+  pathPrefab: {fileID: 0}
   nodes:
   - {fileID: 432007972}
   startBuildingDistance: 2.5
@@ -482,7 +483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 114895339977362432, guid: 21943a9d0168c6c4994d5e0fdeea2ef8,
     type: 2}
-  poolSize: 2
+  poolSize: 20
   spawnMore: 0
   poolContainer: {fileID: 576225318}
 --- !u!1 &616344130

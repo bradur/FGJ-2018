@@ -53,6 +53,8 @@ public class NodeManager : MonoBehaviour
         }
         foreach (BuildableNode node in nodes)
         {
+            if (node == null) continue;
+
             Vector2 nodePosition2D = new Vector2(node.transform.position.x, node.transform.position.z);
             float distance = Vector2.Distance(position2D, nodePosition2D);
             if (distance <= (startBuildingDistance + node.AdditionalTriggerDistance) && node.ConnectableNode)

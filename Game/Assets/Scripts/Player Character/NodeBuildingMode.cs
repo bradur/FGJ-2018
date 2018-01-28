@@ -47,7 +47,9 @@ public class NodeBuildingMode : MonoBehaviour
                 if (node != null)
                 {
                     NodeManager.main.DeselectAll();
-                    currentNode.SetPathParent(node.gameObject);
+                    //currentNode.SetPathParent(node.gameObject);
+                    currentNode.SetPathChild(node.gameObject);
+                    node.SetPathParent(currentNode.gameObject);
                     currentNode.SetUnbuildable();
                     currentNode.Deselect();
                     Disable();
@@ -64,6 +66,7 @@ public class NodeBuildingMode : MonoBehaviour
         buildingModeOn = false;
         uiBuildModeIndicator.SetActive(false);
         GameManager.main.HideBuildIndicator();
+        HideVia();
     }
 
     /// <summary>
@@ -76,6 +79,7 @@ public class NodeBuildingMode : MonoBehaviour
         uiBuildModeIndicator.SetActive(true);
         uiCanBuildIndicator.SetActive(false);
         GameManager.main.ShowBuildIndicator(currentNode.transform.position);
+        ShowVia();
     }
 
     /// <summary>
@@ -126,6 +130,28 @@ public class NodeBuildingMode : MonoBehaviour
             uiCanBuildIndicator.SetActive(false);
             currentNode.Deselect();
             currentNode = null;
+        }
+    }
+
+    public void HideVia()
+    {
+        foreach (Transform t in transform)
+        {
+            if (t.name == "Path")
+            {
+                t.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    public void ShowVia()
+    {
+        foreach (Transform t in transform)
+        {
+            if (t.name == "Path")
+            {
+                t.gameObject.SetActive(true);
+            }
         }
     }
 

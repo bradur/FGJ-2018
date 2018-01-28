@@ -52,7 +52,7 @@ public class BuildableNode : MonoBehaviour
     public bool IsRoot { get { return isRoot; } }
 
     private bool buildable = true;
-    public bool Buildable { get { return pathIndicator.GetChildren().Count == 0; } }
+    public bool Buildable { get { return true; } }//get { return pathIndicator != null && pathIndicator.GetChildren() != null &&     pathIndicator.GetChildren().Count == 0; } }
     private bool isSelected = false;
 
     private SpriteRenderer triggerDistanceRenderer;
@@ -153,7 +153,15 @@ public class BuildableNode : MonoBehaviour
                 ResourceManager.main.Build(buildableType);
                 nodeBuildingMode.EnableBuildMode();
                 buildDistanceIndicator.gameObject.SetActive(true);
-                SetPathParent(player.gameObject);
+                SetPathChild(player.gameObject);
+                foreach(Transform t in player)
+                {
+                    ViaToChild via = t.GetComponent<ViaToChild>();
+                    if (via != null)
+                    {
+                        via.SetParent(gameObject);
+                    }
+                }
             }
         }
 
@@ -196,6 +204,7 @@ public class BuildableNode : MonoBehaviour
     public void DeletePathParent(bool deleteChild = true)
     {
         pathIndicator.DeleteParent(deleteChild);
+        connectableNode = true;
     }
 
     public void DeletePathChild(bool deleteParent = true)
