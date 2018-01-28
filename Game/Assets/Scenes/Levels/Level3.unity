@@ -4590,11 +4590,12 @@ MonoBehaviour:
   plane: {fileID: 2054355064}
   nodeManager: {fileID: 1192968094}
   SignalGoal: 10000
-  nextLevel: -1
+  nextLevel: 3
   enemyDropAmount: 7
   dataSendInterval: 0.8
   dataFilledIndicator: {fileID: 1887189491}
   enemyManager: {fileID: 1117525479}
+  splash: {fileID: 0}
   finishedGameHUD: {fileID: 881824938}
 --- !u!4 &801288924
 Transform:
@@ -5654,7 +5655,7 @@ Transform:
   m_PrefabParentObject: {fileID: 496262, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 968798251}
-  m_LocalRotation: {x: 0.53267515, y: 0.07034045, z: 0.83613265, w: -0.11041513}
+  m_LocalRotation: {x: 0.5326752, y: 0.070340455, z: 0.83613276, w: -0.110415146}
   m_LocalPosition: {x: 0.000022271464, y: -0.00006150465, z: 0.026027026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
