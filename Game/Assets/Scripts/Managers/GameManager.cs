@@ -104,10 +104,20 @@ public class GameManager : MonoBehaviour
         }
         if (finished && Input.GetKeyUp(KeyCode.E))
         {
-            SceneManager.LoadScene(nextLevel);
+            NextLevel();
         }
     }
 
+
+    public void NextLevel()
+    {
+        if (nextLevel == -1)
+        {
+            Debug.Log("Win!");
+            Application.Quit();
+        }
+        SceneManager.LoadScene(nextLevel);
+    }
 
     private bool finished = false;
     [SerializeField]
