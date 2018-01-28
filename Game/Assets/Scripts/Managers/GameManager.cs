@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -79,6 +80,7 @@ public class GameManager : MonoBehaviour
     }
 
     bool connected = false;
+    bool gameOver = true;
 
     // Update is called once per frame
     void Update()
@@ -100,7 +102,9 @@ public class GameManager : MonoBehaviour
         }
         else if(connections == 0 && signalSent > 0)
         {
-            //gameover
+            FinishLevel();
+            Text txtMessage = finishedGameHUD.GetComponentInChildren<Text>();
+            txtMessage.text = "GAME OVER!";
         }
         if (finished && Input.GetKeyUp(KeyCode.E))
         {
@@ -111,9 +115,8 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     {
-        if (nextLevel == -1)
+        if (nextLevel == -1 || gameOver)
         {
-            Debug.Log("Win!");
             Application.Quit();
         }
         SceneManager.LoadScene(nextLevel);
@@ -126,6 +129,11 @@ public class GameManager : MonoBehaviour
     public void FinishLevel()
     {
         finishedGameHUD.SetActive(true);
+        if (nextLevel == -1)
+        {
+            Text txtMessage = finishedGameHUD.GetComponentInChildren<Text>();
+            txtMessage.text = "THE END!\nThanks for playing!";
+        }
         Time.timeScale = 0f;
         finished = true;
     }
