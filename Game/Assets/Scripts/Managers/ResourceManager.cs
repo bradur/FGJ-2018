@@ -83,7 +83,7 @@ public class ResourceManager : MonoBehaviour
     {
         foreach (GameResource resource in resources)
         {
-            if (resourceType == resource.resourceType && amount <= resource.count)
+            if (resourceType == resource.resourceType) // && amount <= resource.count)
             {
                 HUDManager.main.Deposit(resourceType, amount);
                 resource.count += amount;
