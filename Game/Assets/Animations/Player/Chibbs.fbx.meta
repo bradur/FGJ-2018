@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 597edc3147899cd4691f4049a7c4ef2e
-timeCreated: 1517091034
+guid: a4b79e86b9e4e8440b1e0c0c8716dba2
+timeCreated: 1517097240
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -193,8 +193,9 @@ ModelImporter:
     2100004: jamman_wire_213154230
     4300000: jamman:suit1
     7400000: Run
-    7400002: Idle
+    7400002: Idle01
     7400004: Action
+    7400006: Idle02
     9500000: //RootNode
     13700000: jamman:suit1
   externalObjects:
@@ -268,7 +269,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Idle
+      name: Idle01
       takeName: Take 001
       firstFrame: 26
       lastFrame: 38
@@ -300,6 +301,34 @@ ModelImporter:
       takeName: Take 001
       firstFrame: 39
       lastFrame: 54
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle02
+      takeName: Take 001
+      firstFrame: 56
+      lastFrame: 77
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
