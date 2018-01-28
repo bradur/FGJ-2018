@@ -661,13 +661,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyManager: {fileID: 611747927}
-  timeBetweenWaves: 10
+  timeBetweenWaves: 2
   waves:
   - 1
   - 2
   - 3
   - 4
   - 5
+  infiniteWaves: 1
 --- !u!4 &151118334
 Transform:
   m_ObjectHideFlags: 0
@@ -6737,6 +6738,7 @@ MonoBehaviour:
   SignalGoal: 10000
   enemyDropAmount: 10
   dataFilledIndicator: {fileID: 1170054040}
+  enemyManager: {fileID: 611747927}
 --- !u!4 &1222024630
 Transform:
   m_ObjectHideFlags: 0

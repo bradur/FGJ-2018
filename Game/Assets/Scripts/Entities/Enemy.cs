@@ -75,6 +75,7 @@ public class Enemy : MonoBehaviour
         isAttacking = false;
         ResourceManager.main.WithDraw(ResourceType.Enemy, 1);
         ResourceManager.main.Deposit(ResourceType.Data, GameManager.main.EnemyDropAmount);
+        GameManager.main.EnemyManager.KillEnemy(this);
     }
 
     public void Activate()

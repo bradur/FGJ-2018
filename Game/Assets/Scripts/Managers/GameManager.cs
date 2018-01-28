@@ -46,7 +46,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private DataFilledIndicator dataFilledIndicator;
-    
+
+    [SerializeField]
+    private EnemyManager enemyManager;
+
+    public EnemyManager EnemyManager { get { return enemyManager; } }
 
     void Awake()
     {
@@ -99,5 +103,10 @@ public class GameManager : MonoBehaviour
     public float GetConnections()
     {
         return nodeManager.GetConnections();
+    }
+
+    public float GetSignalSent()
+    {
+        return signalSent;
     }
 }

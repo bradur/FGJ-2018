@@ -13,6 +13,10 @@ public class WaveSpanwer : MonoBehaviour
     [SerializeField]
     private List<float> waves;
 
+    [SerializeField]
+    private bool infiniteWaves = false;
+
+
     private float lastWaveTime = 0f;
     private int currentWave = 0;
 
@@ -25,21 +29,33 @@ public class WaveSpanwer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.main.GetConnections() > 0)
+        if (GameManager.main.GetConnections() > 0 || GameManager.main.GetSignalSent() > 0)
         {
             if (Time.time - lastWaveTime > timeBetweenWaves)
             {
-                //spawn waves
-                if (currentWave + 1 <= waves.Count)
+                if (!infiniteWaves)
                 {
-                    for (int i = 0; i < waves[currentWave]; i++)
+                    //spawn waves
+                    if (currentWave + 1 <= waves.Count)
+                    {
+                        for (int i = 0; i < waves[currentWave]; i++)
+                        {
+                            enemyManager.SpawnEnemyToOutside();
+                        }
+                    }
+
+                    currentWave++;
+                    lastWaveTime = Time.time;
+                }
+                else
+                {
+                    currentWave++;
+                    lastWaveTime = Time.time;
+                    for (int i = 0; i < currentWave; i++)
                     {
                         enemyManager.SpawnEnemyToOutside();
                     }
                 }
-
-                currentWave++;
-                lastWaveTime = Time.time;
             }
         }
     }

@@ -35,14 +35,19 @@ public class EnemyManager : MonoBehaviour
         if (enemy != null)
         {
             enemy.transform.position = position;
+            ResourceManager.main.Deposit(ResourceType.Enemy, 1);
         }
 
-        ResourceManager.main.Deposit(ResourceType.Enemy, 1);
     }
 
     public void SpawnEnemyToOutside()
     {
         Vector2 pos = Random.insideUnitCircle.normalized * spawnRange;
         SpawnEnemy(new Vector3(pos.x, gameManager.Plane.transform.position.y+1.5f, pos.y));
+    }
+
+    public void KillEnemy(Enemy enemy)
+    {
+        enemyPool.Sleep(enemy);
     }
 }

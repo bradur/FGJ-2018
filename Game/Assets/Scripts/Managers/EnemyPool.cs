@@ -43,7 +43,7 @@ public class EnemyPool : MonoBehaviour {
     public void Sleep(Enemy obj)
     {
         currentEnemies.Remove(obj);
-        obj.Deactivate();
+        //obj.Deactivate();
         obj.transform.SetParent(poolContainer, true);
         obj.gameObject.SetActive(false);
         backupEnemies.Add(obj);
