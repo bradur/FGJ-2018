@@ -3844,6 +3844,7 @@ MonoBehaviour:
   SignalGoal: 10000
   enemyDropAmount: 0
   dataFilledIndicator: {fileID: 1887189491}
+  enemyManager: {fileID: 1117525479}
 --- !u!4 &801288924
 Transform:
   m_ObjectHideFlags: 0
@@ -4773,7 +4774,7 @@ Transform:
   m_PrefabParentObject: {fileID: 496262, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 968798251}
-  m_LocalRotation: {x: 0.53267515, y: 0.07034045, z: 0.83613265, w: -0.11041513}
+  m_LocalRotation: {x: 0.5326752, y: 0.070340455, z: 0.83613276, w: -0.110415146}
   m_LocalPosition: {x: 0.000022271464, y: -0.00006150465, z: 0.026027026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4966,7 +4967,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: f75e629005c7aad4abf52c1a31e6c565, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.751
+      value: -0.28
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: f75e629005c7aad4abf52c1a31e6c565, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5797,6 +5798,20 @@ MonoBehaviour:
   whackMinInterval: 0.346
   hideAfterWhack: 0.218
   showKolviInterval: 0.1
+--- !u!114 &1026188030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1026188024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c16dbf045230804582340b4c6ce3935, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingModeOn: 0
+  uiBuildModeIndicator: {fileID: 60863410}
+  uiCanBuildIndicator: {fileID: 1332761660}
 --- !u!1 &1039979651
 GameObject:
   m_ObjectHideFlags: 0
@@ -6393,7 +6408,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1117525477}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.5764737, y: -5.760912, z: -3.3471138}
+  m_LocalPosition: {x: -15.08, y: -5.760912, z: -3.3471138}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9498,6 +9513,7 @@ MonoBehaviour:
   - 3
   - 4
   - 5
+  infiniteWaves: 0
 --- !u!4 &1624528060
 Transform:
   m_ObjectHideFlags: 0
@@ -11462,31 +11478,31 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: ca105da653528954ea91567f9ef8dcb9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.3631943
+      value: 0.2898844
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ca105da653528954ea91567f9ef8dcb9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.49576637
+      value: -0.39382234
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ca105da653528954ea91567f9ef8dcb9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.34670967
+      value: -0.37947235
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ca105da653528954ea91567f9ef8dcb9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.01718421
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ca105da653528954ea91567f9ef8dcb9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.99136025
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ca105da653528954ea91567f9ef8dcb9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0690238
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ca105da653528954ea91567f9ef8dcb9, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.11020596
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ca105da653528954ea91567f9ef8dcb9, type: 3}
       propertyPath: m_RootOrder
@@ -11518,6 +11534,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: ca105da653528954ea91567f9ef8dcb9, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ca105da653528954ea91567f9ef8dcb9, type: 3}
+      propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
