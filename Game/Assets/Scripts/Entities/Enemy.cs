@@ -87,6 +87,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.tag == "EnergyNode")
         {
+            if (closest == null) return;
             Vector3 dir = (transform.position - closest.transform.position).normalized;
             body.AddForce(dir * 2f, ForceMode.Impulse);
             if (isAttacking && (Time.time - lastHit > hitInterval))
