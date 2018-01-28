@@ -95,7 +95,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         float connections = nodeManager.GetConnections();
-        //Debug.Log(connections);
         if (connections > 0)
         {
             if (dataSendTimer <= dataSendInterval)

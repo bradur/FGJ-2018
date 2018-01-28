@@ -4273,7 +4273,7 @@ MonoBehaviour:
   SignalGoal: 10000
   nextLevel: 2
   enemyDropAmount: 10
-  dataSendInterval: 0.4
+  dataSendInterval: 0.7
   dataFilledIndicator: {fileID: 1887189491}
   enemyManager: {fileID: 1117525479}
   finishedGameHUD: {fileID: 881824938}
@@ -10422,7 +10422,6 @@ GameObject:
   - component: {fileID: 1525731229}
   - component: {fileID: 1525731228}
   - component: {fileID: 1525731227}
-  - component: {fileID: 1525731226}
   - component: {fileID: 1525731225}
   m_Layer: 0
   m_Name: MiniMap
@@ -10446,13 +10445,6 @@ MonoBehaviour:
   followY: 0
   followZ: 1
   target: {fileID: 1026188026}
---- !u!81 &1525731226
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1525731224}
-  m_Enabled: 1
 --- !u!124 &1525731227
 Behaviour:
   m_ObjectHideFlags: 0
@@ -10874,13 +10866,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyManager: {fileID: 1117525479}
-  timeBetweenWaves: 10
+  timeBetweenWaves: 9
   waves:
+  - 2
   - 3
   - 4
   - 5
-  - 6
-  - 5
+  - 4
   infiniteWaves: 0
 --- !u!4 &1624528060
 Transform:
