@@ -116,13 +116,14 @@ public class ViaToChild : MonoBehaviour
     {
         if (children.Count <= 0) return;
 
-        BuildableNode obj = children[0].GetComponent<BuildableNode>();
-
-        if(obj == null) return;
-
-        if (deleteParent)
+        if (deleteParent && node != null)
         {
-            obj.DeletePathParent(false);
+            BuildableNode obj = node.GetComponent<BuildableNode>();
+
+            if (obj != null)
+            {
+                obj.DeletePathParent(false);
+            }
         }
 
         children.Remove(node);
@@ -132,8 +133,10 @@ public class ViaToChild : MonoBehaviour
     {
         if (children.Count <= 0) return;
         
-        foreach(GameObject child in children)
+        //foreach(GameObject child in children)
+        for(int i = 0; i < children.Count; i++)
         {
+            GameObject child = children[i];
             if (child == null) continue;
             DeleteChild(child, deleteParent);
         }

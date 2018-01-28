@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         float connections = nodeManager.GetConnections();
-        Debug.Log(connections);
+        //Debug.Log(signalSent);
         if (connections > 0)
         {
             signalSent += connections;

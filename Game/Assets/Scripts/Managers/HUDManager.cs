@@ -16,6 +16,9 @@ public class HUDManager : MonoBehaviour
     [SerializeField]
     private HUDData hudData;
 
+    [SerializeField]
+    private HUDData hudEnemies;
+
     // Use this for initialization
     void Start()
     {
@@ -34,6 +37,10 @@ public class HUDManager : MonoBehaviour
         {
             hudData.SubtractFromCount(amount);
         }
+        else if(resourceType == ResourceType.Enemy)
+        {
+            hudEnemies.SubtractFromCount(amount);
+        }
     }
 
     public void Deposit(ResourceType resourceType, int amount)
@@ -41,6 +48,10 @@ public class HUDManager : MonoBehaviour
         if (resourceType == ResourceType.Data)
         {
             hudData.AddToCount(amount);
+        }
+        else if (resourceType == ResourceType.Enemy)
+        {
+            hudEnemies.AddToCount(amount);
         }
     }
 
