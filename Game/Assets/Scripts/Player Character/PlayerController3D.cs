@@ -5,7 +5,11 @@ using UnityEngine;
 public class PlayerController3D : MonoBehaviour
 {
 
+    [SerializeField]
     private Rigidbody rigidbody3D;
+
+    [SerializeField]
+    private Animator animator;
 
     /*[SerializeField]
     [Range(1.5f, 100f)]
@@ -33,7 +37,6 @@ public class PlayerController3D : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        rigidbody3D = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -47,7 +50,14 @@ public class PlayerController3D : MonoBehaviour
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
 
-
+        if (Mathf.Abs(h) > 0.05f || Mathf.Abs(v) > 0.05f)
+        {
+            animator.SetBool("Run", true);
+        }
+        else
+        {
+            animator.SetBool("Run", false);
+        }
         m_Move = v * forwardSpeed * Vector3.forward + h * forwardSpeed * Vector3.right;
 
         // pass all parameters to the character control script
