@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
     }
 
     bool connected = false;
-    bool gameOver = true;
+    bool gameOver = false;
 
     // Update is called once per frame
     void Update()
