@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     public NodeManager NodeManager { get { return nodeManager; } }
 
     [SerializeField]
-    private float SignalGoal = 10000f;
+    private float SignalGoal = 100f;
 
     private float signalSent = 0f;
 
@@ -40,6 +40,13 @@ public class GameManager : MonoBehaviour
     private int enemyDropAmount;
 
     public int EnemyDropAmount { get { return enemyDropAmount; } }
+    
+    private float dataSendInterval = 0.5f;
+    private float dataSendTimer = 0f;
+
+    [SerializeField]
+    private DataFilledIndicator dataFilledIndicator;
+    
 
     void Awake()
     {
@@ -63,6 +70,8 @@ public class GameManager : MonoBehaviour
 
     }
 
+    bool connected = false;
+
     // Update is called once per frame
     void Update()
     {
@@ -70,7 +79,16 @@ public class GameManager : MonoBehaviour
         //Debug.Log(connections);
         if (connections > 0)
         {
-            signalSent += connections;
+            if (dataSendTimer <= dataSendInterval)
+            {
+                dataSendTimer += Time.deltaTime;
+            }
+            if (dataSendTimer >= dataSendInterval)
+            {
+                dataSendTimer = 0f;
+                signalSent += connections;
+                dataFilledIndicator.AddData(connections);
+            }
         }
         else if(connections == 0 && signalSent > 0)
         {
