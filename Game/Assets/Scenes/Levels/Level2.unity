@@ -4271,8 +4271,9 @@ MonoBehaviour:
   plane: {fileID: 2054355064}
   nodeManager: {fileID: 1192968094}
   SignalGoal: 10000
-  nextLevel: -1
-  enemyDropAmount: 0
+  nextLevel: 2
+  enemyDropAmount: 10
+  dataSendInterval: 0.4
   dataFilledIndicator: {fileID: 1887189491}
   enemyManager: {fileID: 1117525479}
   finishedGameHUD: {fileID: 881824938}
@@ -7405,7 +7406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b8ad5b3f6ac5014dab83c60c924445d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRange: 20
+  spawnRange: 40
   enemyPool: {fileID: 1117525478}
   nodeManager: {fileID: 1192968094}
   gameManager: {fileID: 801288923}

@@ -45,7 +45,8 @@ public class GameManager : MonoBehaviour
     private int enemyDropAmount;
 
     public int EnemyDropAmount { get { return enemyDropAmount; } }
-    
+
+    [SerializeField]
     private float dataSendInterval = 0.5f;
     private float dataSendTimer = 0f;
 
